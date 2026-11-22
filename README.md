@@ -13,10 +13,9 @@ Open `index.html` in your browser. Keep `style.css` and `assets/` beside it.
 
 ## Files
 
-- `index.html`: all visible writing, navigation, code examples and video.
+- `index.html`: all visible writing, navigation, code examples.
 - `style.css`: palette, typography, layout, keyboard focus and mobile rules.
 - `assets/favicon.svg`: monochrome browser icon.
-- `assets/hud-demo.mp4`: existing garage, shop and settings recording.
 - `_headers`: security headers for Cloudflare Pages.
 - `_redirects`: old page URLs.
 
@@ -24,10 +23,10 @@ Open `index.html` in your browser. Keep `style.css` and `assets/` beside it.
 
 Upload these website files as a new production deployment of `flshmdls` using its existing direct-upload workflow. Put `index.html` at the root of the uploaded folder or ZIP. There is no build command. This site does not run the tools it links to.
 
-The page uses only local assets. Its content security policy permits local styles, images and video; scripts and network connections are disabled.
+The page uses only local assets. Its content security policy permits local styles and images; scripts and network connections are disabled.
 
 ## Content notes
 
-The featured projects are Flash Remote Check, Flash Canvas and Flash Inspect. The writeups are based on their public repository documentation reviewed on November 21, 2026, including recorded testing limitations. Commands and code examples illustrate usage rather than claiming a live scan or running tool. The UI recording is the existing portfolio video.
+The featured projects are Flash Remote Check, Flash Canvas and Flash Inspect. The writeups are based on their public repository documentation reviewed on November 21, 2026, including recorded testing limitations. Commands and code examples illustrate usage rather than claiming a live scan or running tool.
 
 All other projects remain available on GitHub.

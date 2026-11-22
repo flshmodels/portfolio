@@ -18,7 +18,7 @@
 body { margin: 0; }
 a { color: inherit; text-underline-offset: 0.3em; }
 a:hover { color: #ffffff; }
-a:focus-visible, video:focus-visible {
+a:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 6px;
 }
@@ -61,9 +61,7 @@ code { font-family: Consolas, "Courier New", monospace; }
 .scan-checks li + li { margin-top: 8px; }
 .more-work { color: var(--muted); padding-block: 26px 64px; }
 
-/* Existing UI recording and a small personal introduction. */
-.demo { padding-bottom: 72px; }
-video { width: 100%; max-height: 640px; display: block; background: #111111; border: 1px solid var(--border); }
+/* Introduction and contact details. */
 .about-me { max-width: 720px; padding-block: 56px 64px; }
 .about-me h1 { margin-bottom: 24px; }
 .about-me p { color: #ababab; }
