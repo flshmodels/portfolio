@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="I'm flash. I build Roblox tools, integrations and interfaces. A closer look at three of my public projects.">
+  <meta name="description" content="I'm flash. Roblox tools, Blender models, and notes on a few things I've made.">
   <meta name="theme-color" content="#080808">
   <title>flash — Roblox developer</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -14,6 +14,7 @@
   <header class="site-header wrap">
     <nav aria-label="Main navigation">
       <a href="#about-me">About</a>
+      <a href="#models">Models</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
       <a href="https://github.com/flshmodels">GitHub</a>
@@ -25,7 +26,32 @@
       <h1 id="about-title">A little about me</h1>
       <div id="about">
         <p>I’m flash. I’m in high school and want to study computer science. Most of my time coding goes into my own Roblox projects, some of which aren’t public yet.</p>
-        <p>I mainly use Luau, along with JavaScript, Python and PowerShell when I need something outside Studio. These are a few of the tools I’ve worked on.</p>
+        <p>I mainly use Luau, along with JavaScript, Python and PowerShell when I need something outside Studio. I’m also working on miniature game models in Blender.</p>
+      </div>
+    </section>
+
+    <section id="models" class="model-work" aria-labelledby="models-title">
+      <div class="section-heading"><h2 id="models-title">Models</h2></div>
+      <p class="model-intro">Small naval units made in Blender. I wanted the ships to stay recognizable at game scale, with enough detail to look at up close.</p>
+      <div class="model-grid">
+        <article class="model-card" aria-labelledby="freedom-title">
+          <img class="model-image" src="assets/cooperstown-bow.jpg" width="1600" height="900" alt="Blender model of a Freedom-class ship with an angular bridge, enclosed radar mast and stern flight deck." loading="lazy">
+          <div class="model-copy">
+            <h3 id="freedom-title">Freedom class</h3>
+            <p>Based on USS Cooperstown. I used the builder’s overhead photos to work out the flight deck and hangar, then closer photos for the mast and gun. The boat sits inside a recessed bay in the side of the ship.</p>
+            <dl class="model-stats"><div><dt>Triangles</dt><dd>10,126</dd></div><div><dt>Meshes</dt><dd>6</dd></div><div><dt>Texture</dt><dd>128 × 64</dd></div></dl>
+            <details><summary>View from the stern</summary><img src="assets/cooperstown-stern.jpg" width="1600" height="900" alt="Stern view showing the flight-deck markings, hangar shutter and roof equipment." loading="lazy"></details>
+          </div>
+        </article>
+        <article class="model-card" aria-labelledby="tiger-title">
+          <img class="model-image" src="assets/tiger-bow.jpg" width="1600" height="750" alt="Blender model of an early Tiger-class patrol ship with two gun mounts and four boxed launchers." loading="lazy">
+          <div class="model-copy">
+            <h3 id="tiger-title">Type 148 Tiger</h3>
+            <p>This was the first ship in the set. I worked from early-service photos for the guns and radar arrangement. The launchers have shaped saddles, and the hatch follows the rising foredeck instead of sitting above it.</p>
+            <dl class="model-stats"><div><dt>Triangles</dt><dd>9,016</dd></div><div><dt>Meshes</dt><dd>5</dd></div><div><dt>Texture</dt><dd>128 × 64</dd></div></dl>
+            <details><summary>View from above</summary><img src="assets/tiger-top.jpg" width="1600" height="500" alt="Overhead view of the Tiger model showing the gun mounts, launcher groups and deck layout." loading="lazy"></details>
+          </div>
+        </article>
       </div>
     </section>
 
