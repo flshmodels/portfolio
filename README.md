@@ -6,19 +6,19 @@ Open `index.html` in your browser. Keep `style.css` and `assets/` beside it.
 
 ## Where to start learning
 
-1. Open `index.html` in a text editor. Each `<section>` is one part of the page. Project writeups are `<article>` elements, and `<details>` provides the expandable notes without JavaScript.
+1. Open `index.html` in a text editor. Each `<section>` is one part of the page. Project writeups are `<article>` elements.
 2. Open `style.css`. The variables at the top control the colors. Try changing `--background`, then reload the browser.
 3. The `.project` rule makes a two-column grid. The media query near the bottom changes it to one column on phones. Try changing the gap or the breakpoint and resize the browser.
 4. Edit a heading or paragraph in the HTML. Save and reload. Content is written directly in the document so you can see exactly where it appears.
 
 ## Files
 
-- `index.html`: all visible writing, navigation, diagrams and video.
+- `index.html`: all visible writing, navigation, code examples and video.
 - `style.css`: palette, typography, layout, keyboard focus and mobile rules.
 - `assets/favicon.svg`: monochrome browser icon.
 - `assets/hud-demo.mp4`: existing garage, shop and settings recording.
 - `_headers`: security headers for Cloudflare Pages.
-- `_redirects`: old page URLs and project anchors.
+- `_redirects`: old page URLs.
 
 ## Publish to the existing Cloudflare Pages project
 
@@ -28,6 +28,6 @@ The page uses only local assets. Its content security policy permits local style
 
 ## Content notes
 
-The three writeups are based on the public repository documentation reviewed on November 21, 2026. They keep the recorded testing limitations. The diagrams explain the projects; they are not screenshots of running tools. The UI recording is the existing portfolio video.
+The featured projects are Flash Remote Check, Flash Canvas and Flash Inspect. The writeups are based on their public repository documentation reviewed on November 21, 2026, including recorded testing limitations. Commands and code examples illustrate usage rather than claiming a live scan or running tool. The UI recording is the existing portfolio video.
 
-Old anchors for the three selected projects still work. All other projects remain available on GitHub.
+All other projects remain available on GitHub.
