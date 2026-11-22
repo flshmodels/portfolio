@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="I'm flash. I build Roblox tools, integrations and interfaces. A closer look at three of my public projects.">
+  <meta name="theme-color" content="#080808">
+  <title>flash — Roblox developer</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <nav aria-label="Main navigation">
+      <a href="#about-me">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/flshmodels">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+    <section id="about-me" class="about-me" aria-labelledby="about-title">
+      <h1 id="about-title">A little about me</h1>
+      <div id="about">
+        <p>I’m flash, a high school student working toward studying computer science. I mostly build my own Roblox projects, including some that aren’t public yet.</p>
+        <p>I use Luau for Roblox and JavaScript, Python and PowerShell for tools outside Studio. Below are three of my public projects, with notes on how they work and what still needs testing.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="selected-work" aria-labelledby="work-title">
+      <div class="section-heading">
+        <h2 id="work-title">Projects</h2>
+      </div>
+      <div class="project-index">
+        <a href="#bridge"><span>Roblox CAD Bridge</span><small>Game to backend</small></a>
+        <a href="#canvas"><span>Flash Canvas</span><small>Layout to Luau</small></a>
+        <a href="#inspect"><span>Flash Inspect</span><small>Studio checks</small></a>
+      </div>
+
+      <article class="project" id="bridge" aria-labelledby="bridge-title">
+        <div class="project-copy">
+          <p class="eyebrow">Integration · Luau + Node.js</p>
+          <h3 id="bridge-title">Roblox CAD<br>Bridge</h3>
+          <p class="project-lead">A 911 call in the game needs a way to reach the dispatch system outside it.</p>
+          <p>This bridge carries 911 calls, unit updates and panic alerts from a Roblox server to a computer-aided dispatch backend. The game server checks the event first, then sends it to an HTTP receiver. A separate adapter translates the result into the fields your CAD uses.</p>
+          <p>The interesting part is what happens when delivery goes wrong. There’s a temporary queue, request budgeting and retries with backoff. The receiver keeps sessions and servers separate, and the CAD reader uses its own read-only credentials.</p>
+          <details>
+            <summary>Inside the project</summary>
+            <div class="detail-copy">
+              <p>The Luau services own player identity, location and duty checks. The Node receiver validates incoming records and stores a snapshot. An example mapper shows how to turn that snapshot into calls, units and panic records for another application.</p>
+              <p>This is a starting point for an integration. You still need to host an HTTPS receiver and write the final CAD adapter. The queue is held in memory, so it can lose pending events on shutdown. Receiver acceptance also doesn’t mean a dispatcher has seen the call. Live Roblox behavior still needs verification.</p>
+            </div>
+          </details>
+          <a class="text-link" href="https://github.com/flshmodels/rbx-cad-bridge">Read the source</a>
+        </div>
+        <figure class="project-visual bridge-visual">
+          <div class="visual-heading"><span>Event delivery</span><span>One-way feed</span></div>
+          <div class="flow">
+            <div><span class="flow-label">Roblox server</span><strong>Check the call.</strong><p>Identity, input, duty and location</p></div>
+            <div class="flow-connector" aria-hidden="true"></div>
+            <div><span class="flow-label">HTTPS receiver</span><strong>Keep the record.</strong><p>Validation, sessions and storage</p></div>
+            <div class="flow-connector" aria-hidden="true"></div>
+            <div><span class="flow-label">Your CAD backend</span><strong>Make it useful.</strong><p>Map the data into your application</p></div>
+          </div>
+          <figcaption>Architecture overview. The final CAD adapter depends on the application you use.</figcaption>
+        </figure>
+      </article>
+
+      <article class="project" id="canvas" aria-labelledby="canvas-title">
+        <div class="project-copy">
+          <p class="eyebrow">Developer tool · JavaScript + Luau export</p>
+          <h3 id="canvas-title">Flash Canvas</h3>
+          <p class="project-lead">Try a small interface in the browser. Take the layout back to Studio.</p>
+          <p>Canvas reads a JSON layout and previews frames, labels and buttons at different sizes. Once the layout is valid, it exports a Luau function that creates the GUI. The preview runs locally in the browser, without an account or a server.</p>
+          <p>It focuses on the awkward bit of Roblox UI: how scale, offset and anchors work together. The export keeps those values instead of fixing everything to one screen size. You get the interface structure, then connect the buttons to your own game code.</p>
+          <details>
+            <summary>Inside the project</summary>
+            <div class="detail-copy">
+              <p>Parsing, validation, geometry and Luau generation share one layout module. The browser builds its preview with DOM elements. After an edit, export stays disabled until the next valid render, so the downloaded code matches the checked layout.</p>
+              <p>The preview is deliberately small: Frame, TextLabel and TextButton. It doesn’t use Roblox’s renderer, and fonts, wrapping and clipping can differ. Check the exported GUI in Studio before using it in a game.</p>
+            </div>
+          </details>
+          <a class="text-link" href="https://github.com/flshmodels/flash-canvas">Read the source</a>
+        </div>
+        <figure class="project-visual code-visual">
+          <div class="visual-heading"><span>From layout to instance</span><span>Luau</span></div>
+          <div class="code-note">The exported function builds a fresh GUI tree.</div>
+          <pre><code>local makeLayout = require(
+    ReplicatedStorage.WalletLayout
+)
+
+local root = makeLayout(screen)
+
+root.Open.Activated:Connect(function()
+    -- Add your game's behavior here.
+end)</code></pre>
+          <div class="code-foot"><span>JSON layout</span><span>Browser preview</span><span>Luau export</span></div>
+          <figcaption>Usage excerpt. Create the ScreenGui and get ReplicatedStorage first; the repository has the full example.</figcaption>
+        </figure>
+      </article>
+
+      <article class="project" id="inspect" aria-labelledby="inspect-title">
+        <div class="project-copy">
+          <p class="eyebrow">Studio plugin · Luau</p>
+          <h3 id="inspect-title">Flash Inspect</h3>
+          <p class="project-lead">Find the small mistakes that are easy to miss in a large place.</p>
+          <p>A scenery part can be left unanchored. Two doors can end up with the same interaction ID. Inspect scans tagged objects for those problems and lists the findings in a Studio panel. Click a result to select the object and check it yourself.</p>
+          <p>The checks stay narrow: unanchored static scenery, invalid interaction IDs, and duplicate IDs. It leaves the place alone. A welded part might be unanchored on purpose, so a finding is something to review, rather than an automatic fix.</p>
+          <details>
+            <summary>Inside the project</summary>
+            <div class="detail-copy">
+              <p>You can scan Workspace or the current selection. Overlapping selections are deduplicated, and a scenery tag on a parent still applies to its descendants. Every object affected by a duplicate ID is included in the results.</p>
+              <p>Duplicate checks only cover the scanned scope. Results are snapshots, so rescan after making changes. The plugin refuses play-mode scans and stops above its object limit. Its dock panel and installation still need testing in a live Studio session.</p>
+            </div>
+          </details>
+          <a class="text-link" href="https://github.com/flshmodels/flash-inspect">Read the source</a>
+        </div>
+        <figure class="project-visual inspect-visual">
+          <div class="visual-heading"><span>What gets checked</span><span>Read-only scan</span></div>
+          <div class="check-row"><span>Static scenery</span><strong>Is every tagged part anchored?</strong><code>STATIC_UNANCHORED</code></div>
+          <div class="check-row"><span>Interaction IDs</span><strong>Does the object have a valid ID?</strong><code>INVALID_INTERACTION_ID</code></div>
+          <div class="check-row"><span>Duplicate IDs</span><strong>Is the same ID used twice?</strong><code>DUPLICATE_INTERACTION_ID</code></div>
+          <figcaption>The plugin checks the tags and attributes your game already uses. It doesn’t change objects.</figcaption>
+        </figure>
+      </article>
+      <p class="more-work">There’s more on <a href="https://github.com/flshmodels?tab=repositories">GitHub</a>, including smaller Studio utilities and experiments.</p>
+    </section>
+
+    <section id="demo" class="demo" aria-labelledby="demo-title">
+      <div class="section-heading"><h2 id="demo-title">A look at the UI</h2><p>Garage, shop and settings.</p></div>
+      <video controls playsinline preload="metadata" aria-label="Recording of the garage, shop and settings interface">
+        <source src="assets/hud-demo.mp4" type="video/mp4">
+        Your browser cannot play this video. <a href="assets/hud-demo.mp4">Download the recording.</a>
+      </video>
+      <p class="caption">A separate interface demo. The three projects above are tools and systems, not the UI shown here.</p>
+    </section>
+
+  </main>
+
+  <footer class="wrap" id="contact">
+    <a href="mailto:Whicklez2@gmail.com">Whicklez2@gmail.com</a>
+    <a href="https://discord.com/users/1259601965034377357">Discord: Whicklez <span>(1259601965034377357)</span></a>
+  </footer>
+</body>
+</html>
