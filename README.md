@@ -13,7 +13,8 @@ Open `index.html` in your browser. Keep `style.css` and `assets/` beside it.
 
 ## Files
 
-- `index.html`: all visible writing, navigation, code examples.
+- `index.html`: about, coding projects, navigation and contact.
+- `models.html`: the separate Blender gallery, render views and measured mesh counts.
 - `style.css`: palette, typography, layout, keyboard focus and mobile rules.
 - `assets/favicon.svg`: monochrome browser icon.
 - `_headers`: security headers for Cloudflare Pages.
@@ -29,6 +30,7 @@ The page uses only local assets. Its content security policy permits local style
 
 The featured projects are Flash Remote Check, Flash Canvas and Flash Inspect. The writeups are based on their public repository documentation reviewed on November 21, 2026, including recorded testing limitations. Commands and code examples illustrate usage rather than claiming a live scan or running tool.
 
-The Models section contains the Tiger-class and Freedom-class Blender studies. Only compressed render images are published; editable models and interchange files are kept in the separate delivery packages. Mesh counts come from the final Blender exports. The cards do not claim measured Roblox performance or exact engineering accuracy.
+The separate Models page contains the Tiger-class study and the final Freedom-class model. Cooperstown uses the final checked export: 24,712 triangles, seven meshes and one 128 x 64 palette texture. Its four published views are the final bow, stern, aft-face and rear-mount renders. Only compressed render images are published; editable models and interchange files are kept in the separate delivery packages. Mesh counts come from the final Blender exports. The cards do not claim measured Roblox performance or exact engineering accuracy.
 
 All other projects remain available on GitHub.
+

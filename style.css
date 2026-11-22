@@ -35,6 +35,7 @@ p + p { margin-top: 1rem; }
 nav { display: flex; flex-wrap: wrap; gap: 12px 32px; font-size: 0.9375rem; }
 nav a { color: #b5b5b5; text-decoration: none; }
 nav a:hover { text-decoration: underline; }
+nav a[aria-current="page"] { color: var(--text); text-decoration: underline; }
 h1 { font-size: 1.75rem; font-weight: 550; line-height: 1.3; letter-spacing: -0.025em; }
 .text-link { display: inline-block; font-size: 0.9375rem; white-space: nowrap; text-decoration-thickness: 1px; }
 
@@ -62,7 +63,25 @@ code { font-family: Consolas, "Courier New", monospace; }
 .scan-checks li + li { margin-top: 8px; }
 .more-work { color: var(--muted); padding-block: 26px 64px; }
 
-/* Blender work uses the same simple layout as the written projects. */
+/* The separate model gallery keeps the home page focused on the written projects. */
+.models-intro { padding-block: 56px 48px; max-width: 760px; }
+.models-intro h1 { margin-bottom: 20px; }
+.models-intro > p { color: #ababab; }
+.model-links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 24px; }
+.ship-study { padding-block: 36px 64px; border-top: 1px solid var(--border); }
+.ship-heading { margin-bottom: 28px; }
+.ship-heading p { margin-top: 8px; color: var(--muted); }
+.render-link { display: block; }
+.ship-render { display: block; width: 100%; height: auto; background: #a9aaab; }
+.ship-description { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 48px; margin-block: 32px; }
+.ship-description p { color: #ababab; }
+.ship-description .model-stats { margin: 0; align-content: start; }
+.ship-views summary { cursor: pointer; width: fit-content; text-decoration: underline; text-underline-offset: .3em; }
+.ship-views[open] > summary { margin-bottom: 24px; }
+.render-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.render-gallery figure:first-child { grid-column: 1 / -1; }
+.render-gallery img { display: block; width: 100%; height: auto; }
+.render-gallery figcaption { color: var(--muted); margin-top: 8px; font-size: .875rem; }
 .model-work { padding-bottom: 72px; }
 .model-intro { max-width: 700px; color: var(--muted); margin-bottom: 32px; }
 .model-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
@@ -74,10 +93,6 @@ code { font-family: Consolas, "Courier New", monospace; }
 .model-stats { display: flex; flex-wrap: wrap; gap: 20px 28px; padding-top: 20px; margin: 24px 0; border-top: 1px solid var(--border); font-size: 0.875rem; }
 .model-stats dt { color: var(--muted); }
 .model-stats dd { margin: 0; }
-.model-copy summary { width: fit-content; cursor: pointer; text-decoration: underline; text-underline-offset: .3em; font-size: .9375rem; }
-.model-copy summary:focus-visible { outline: 2px solid white; outline-offset: 6px; }
-.model-copy details img { display: block; width: 100%; height: auto; margin-top: 20px; background: #a9aaab; }
-
 /* Introduction and contact details. */
 .about-me { max-width: 720px; padding-block: 56px 64px; }
 .about-me h1 { margin-bottom: 24px; }
@@ -105,8 +120,10 @@ footer a span { color: #888888; }
   .project { grid-template-columns: minmax(0, 1fr); }
   .project { padding-block: 48px; gap: 32px; }
   .about-me { padding-block: 36px 48px; }
-  .model-grid { grid-template-columns: 1fr; }
-  .model-copy { padding: 22px; }
+  .models-intro { padding-block: 36px; }
+  .ship-description, .render-gallery { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .render-gallery figure:first-child { grid-column: auto; }
+  .ship-study { padding-bottom: 48px; }
   .more-work { padding-bottom: 48px; }
   pre { font-size: 0.8125rem; padding-inline: 18px; }
 }
@@ -115,3 +132,4 @@ footer a span { color: #888888; }
   :root { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
