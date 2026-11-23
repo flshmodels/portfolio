@@ -80,6 +80,7 @@ code { font-family: Consolas, "Courier New", monospace; }
 .ship-views[open] > summary { margin-bottom: 24px; }
 .render-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
 .render-gallery figure:first-child { grid-column: 1 / -1; }
+.render-gallery .wide-view { grid-column: 1 / -1; }
 .render-gallery img { display: block; width: 100%; height: auto; }
 .render-gallery figcaption { color: var(--muted); margin-top: 8px; font-size: .875rem; }
 .model-work { padding-bottom: 72px; }
